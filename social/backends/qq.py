@@ -33,7 +33,7 @@ class QQOAuth2(BaseOAuth2):
         response = self.request(self.OPENID_URL, params={
             'access_token': access_token
         })
-        data = json.loads(response.content[10:-3])
+        data = json.loads(response.text[10:-3])
         return data['openid']
 
     def user_data(self, access_token, *args, **kwargs):
